@@ -71,22 +71,3 @@ Cek server:
     "mimeType": "image/png"
   }
   ```
-
-## Catatan Kuota (HTTP 429)
-Jika muncul error `429 RESOURCE_EXHAUSTED`, artinya kuota/rate limit Gemini sedang habis/terbatas.
-
-Solusi:
-- tunggu beberapa saat, atau
-- ganti `GEMINI_MODEL` ke model lain yang tersedia, atau
-- upgrade/billing sesuai akun Gemini kamu.
-
-## Keamanan
-- **Jangan commit `.env`** ke GitHub karena berisi API key.
-- Pastikan `.gitignore` berisi:
-  ```
-  node_modules/
-  .env
-  ```
-
-## Lisensi
-Bebas dipakai untuk pembelajaran / pengembangan.
