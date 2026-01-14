@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web Gambar - Tema AI</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <h1>Draw & Judge</h1>
+        <p>AI pilih tema → kamu gambar → AI menilai</p>
+      </div>
+      <div class="badge">Gemini API (Backend)</div>
+    </header>
+
+    <main class="gridOne">
+      <section class="card">
+        <div class="cardHeader">
+          <h2>Tema Terpilih</h2>
+          <div id="status" class="status">Siap</div>
+        </div>
+
+        <div class="themeBox">
+          <div class="label">Tema dari AI</div>
+          <div id="themeText" class="themeText">—</div>
+
+          <div class="row gap" style="margin-top:10px;">
+            <button id="btnGenerateTheme" class="btn primary">Generate Tema (AI)</button>
+            <button id="btnClearTheme" class="btn">Reset</button>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="label">Atau isi manual</div>
+          <div class="row gap" style="margin-top:8px;">
+            <input id="themeManual" class="input" placeholder="ketik tema manual..." />
+            <button id="btnSetTheme" class="btn">Set</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="cardHeader" style="margin-top:6px;">
+          <h2>Canvas</h2>
+          <div class="pill">Step 2</div>
+        </div>
+
+        <div class="tools">
+          <div class="toolGroup">
+            <div class="tool">
+              <span>Brush</span>
+              <input id="brushSize" type="range" min="2" max="40" value="8" />
+            </div>
+            <div class="tool">
+              <span>Warna</span>
+              <input id="color" type="color" value="#111111" />
+            </div>
+          </div>
+
+          <div class="toolGroup">
+            <button id="btnEraser" class="btn">Eraser</button>
+            <button id="btnUndo" class="btn">Undo</button>
+            <button id="btnRedo" class="btn">Redo</button>
+            <button id="btnClear" class="btn danger">Clear</button>
+          </div>
+        </div>
+
+        <div class="canvasWrap">
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="row gap" style="margin-top:10px;">
+          <button id="btnSubmit" class="btn primary">Submit untuk Dinilai</button>
+          <button id="btnDownload" class="btn">Download PNG</button>
+        </div>
+
+        <div id="result" class="result hidden">
+          <h3 style="margin:10px 0 8px;">Hasil Penilaian</h3>
+          <div class="scoreRow">
+            <div class="score" id="scoreValue">0</div>
+            <div class="mono" id="scoreBreakdown"></div>
+          </div>
+          <p id="feedback" style="margin:10px 0 6px;"></p>
+          <p class="tip"><b>Tip:</b> <span id="tip"></span></p>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">HTML/CSS/JS + Gemini API</div>
+  </div>
+</body>
+</html>
